@@ -8,38 +8,38 @@
       function drawChart () {
 
         var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Hours Studied');
-        data.addColumn('number', 'Final');
+        data.addColumn('date', 'Date');
+        data.addColumn('number', 'Item');
 
         data.addRows([
-          [0, 67], [1, 88], [2, 77],
-          [3, 93], [4, 85], [5, 91],
-          [6, 71], [7, 78], [8, 93],
-          [9, 80], [10, 82],[0, 75],
-          [5, 80], [3, 90], [1, 72],
-          [5, 75], [6, 68], [7, 98],
-          [3, 82], [9, 94], [2, 79],
-          [2, 95], [2, 86], [3, 67],
-          [4, 60], [2, 80], [6, 92],
-          [2, 81], [8, 79], [9, 83],
-          [3, 75], [1, 80], [3, 71],
-          [3, 89], [4, 92], [5, 85],
-          [6, 92], [7, 78], [6, 95],
-          [3, 81], [0, 64], [4, 85],
-          [2, 83], [3, 96], [4, 77],
-          [5, 89], [4, 89], [7, 84],
-          [4, 92], [9, 98]
+          [new Date(2020, 8, 7), 67], [new Date(2020, 8, 15), 88], [new Date(2020, 8, 15), 77],
+          [new Date(2020, 10, 10), 93], [new Date(2020, 8, 11), 85], [new Date(2020, 8, 12), 91],
+          [new Date(2020, 8, 13), 71], [new Date(2020, 10, 14), 78], [new Date(2020, 8, 15), 93],
+          [new Date(2020, 9, 16), 80], [new Date(2020, 8, 17), 82],[new Date(2020, 10, 7), 75],
+          [new Date(2020, 10, 23), 80], [new Date(2020, 9, 23), 90], [new Date(2020, 10, 2), 72],
+          [new Date(2020, 9, 12), 75], [new Date(2020, 9, 13), 68], [new Date(2020, 8, 14), 98],
+          [new Date(2020, 10, 10), 82], [new Date(2020, 8, 16), 94], [new Date(2020, 9, 9), 79],
+          [new Date(2020, 8, 15), 95], [new Date(2020, 9, 9), 86], [new Date(2020, 9, 2), 67],
+          [new Date(2020, 9, 11), 60], [new Date(2020, 8, 15), 80], [new Date(2020, 8, 13), 92],
+          [new Date(2020, 9, 9), 81], [new Date(2020, 8, 15), 79], [new Date(2020, 8, 16), 83],
+          [new Date(2020, 9, 2), 75], [new Date(2020, 10, 8), 80], [new Date(2020, 9, 10), 71],
+          [new Date(2020, 8, 23), 89], [new Date(2020, 8, 11), 92], [new Date(2020, 10, 12), 85],
+          [new Date(2020, 10, 13), 92], [new Date(2020, 9, 14), 78], [new Date(2020, 9, 2), 95],
+          [new Date(2020, 9, 10), 81], [new Date(2020, 8, 7), 64], [new Date(2020, 8, 11), 85],
+          [new Date(2020, 10, 2), 83], [new Date(2020, 10, 10), 96], [new Date(2020, 8, 11), 77],
+          [new Date(2020, 8, 12), 89], [new Date(2020, 9, 11), 89], [new Date(2020, 8, 14), 84],
+          [new Date(2020, 8, 15), 92], [new Date(2020, 8, 16), 98]
         ]);
 
         var options = {
           width: 800,
           height: 500,
           chart: {
-            title: 'Students\' Final Grades',
-            subtitle: 'based on hours studied'
+            title: 'Items Released Scatterplot',
+            subtitle: 'CicleTime in Days'
           },
-          hAxis: {title: 'Hours Studied'},
-          vAxis: {title: 'Grade'}
+          hAxis: {title: 'Date'},
+          vAxis: {title: 'CycleTime'}
         };
 
         var chart = new google.charts.Scatter(document.getElementById('scatterchart_material'));
