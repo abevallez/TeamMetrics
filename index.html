@@ -35,7 +35,11 @@
           hAxis: {title: 'Date'},
           vAxis: {title: 'CycleTime'},
           crosshair: { trigger: 'both' },
-          trendlines: { 0: {visibleInLegend: true} }    // Draw a trendline for data series 0.
+          trendlines: {
+            0: {
+              visibleInLegend: true,
+            }
+          }  
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('scatterchart_material'));
