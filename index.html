@@ -35,13 +35,7 @@
           hAxis: {title: 'Date'},
           vAxis: {title: 'CycleTime'},
           crosshair: { trigger: 'both' },
-          trendlines: {
-           0: {
-             type: 'polynomial',
-             degree: 3,
-             visibleInLegend: true,
-           }
-         }
+          trendlines: { 0: {} }    // Draw a trendline for data series 0.
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('scatterchart_material'));
