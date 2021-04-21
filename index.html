@@ -11,7 +11,7 @@
         var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1DfJUNLzW0KExmkFVju_okRvZWJBu0WiM0KUi1TefDgk/edit?usp=sharing', opts);
 
         // Optional request to return only column C and the sum of column B, grouped by C members.
-        query.setQuery('select B, D where B is not '#VALUE!'');
+        query.setQuery('select B, D where B is not "#VALUE!"');
 
         // Send the query with a callback function.
         query.send(drawChart);
