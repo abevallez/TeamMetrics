@@ -3,33 +3,27 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['scatter']});
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(initialize);
 
-      function drawChart () {
+      function initialize() {
+        var opts = {sendMethod: 'auto'};
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1DfJUNLzW0KExmkFVju_okRvZWJBu0WiM0KUi1TefDgk/edit?usp=sharing', opts);
 
-        var data = new google.visualization.DataTable();
-        data.addColumn('date', 'Date');
-        data.addColumn('number', 'Item');
+        // Optional request to return only column C and the sum of column B, grouped by C members.
+        query.setQuery('select J, I');
 
-        data.addRows([
-          [new Date(2020, 8, 7), 67], [new Date(2020, 8, 15), 88], [new Date(2020, 8, 15), 77],
-          [new Date(2020, 10, 10), 93], [new Date(2020, 8, 11), 85], [new Date(2020, 8, 12), 91],
-          [new Date(2020, 8, 13), 71], [new Date(2020, 10, 14), 78], [new Date(2020, 8, 15), 93],
-          [new Date(2020, 9, 16), 80], [new Date(2020, 8, 17), 82],[new Date(2020, 10, 7), 75],
-          [new Date(2020, 10, 23), 80], [new Date(2020, 9, 23), 90], [new Date(2020, 10, 2), 72],
-          [new Date(2020, 9, 12), 75], [new Date(2020, 9, 13), 68], [new Date(2020, 8, 14), 98],
-          [new Date(2020, 10, 10), 82], [new Date(2020, 8, 16), 94], [new Date(2020, 9, 9), 79],
-          [new Date(2020, 8, 15), 95], [new Date(2020, 9, 9), 86], [new Date(2020, 9, 2), 67],
-          [new Date(2020, 9, 11), 60], [new Date(2020, 8, 15), 80], [new Date(2020, 8, 13), 92],
-          [new Date(2020, 9, 9), 81], [new Date(2020, 8, 15), 79], [new Date(2020, 8, 16), 83],
-          [new Date(2020, 9, 2), 75], [new Date(2020, 10, 8), 80], [new Date(2020, 9, 10), 71],
-          [new Date(2020, 8, 23), 89], [new Date(2020, 8, 11), 92], [new Date(2020, 10, 12), 85],
-          [new Date(2020, 10, 13), 92], [new Date(2020, 9, 14), 78], [new Date(2020, 9, 2), 95],
-          [new Date(2020, 9, 10), 81], [new Date(2020, 8, 7), 64], [new Date(2020, 8, 11), 85],
-          [new Date(2020, 10, 2), 83], [new Date(2020, 10, 10), 96], [new Date(2020, 8, 11), 77],
-          [new Date(2020, 8, 12), 89], [new Date(2020, 9, 11), 89], [new Date(2020, 8, 14), 84],
-          [new Date(2020, 8, 15), 92], [new Date(2020, 8, 16), 98]
-        ]);
+        // Send the query with a callback function.
+        query.send(drawChart);
+      }
+
+      function drawChart (response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+          }
+
+        var data = response.getDataTable();
 
         var options = {
           width: 800,
