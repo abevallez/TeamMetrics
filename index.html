@@ -30,8 +30,10 @@
           height: screen.height,
           title: 'Items Released Scatterplot',
           subtitle: 'CicleTime in Days',
-          hAxis: {title: 'Date'},
-          vAxis: {title: 'CycleTime'},
+          chartArea: {width: '100%', height: '100%'},
+          legend: {position: 'in'},
+          titlePosition: 'in', axisTitlesPosition: 'in',
+          hAxis: {textPosition: 'in'}, vAxis: {textPosition: 'in'}
           crosshair: { trigger: 'both', orientation: 'both' },
           trendlines: {
            0: {
