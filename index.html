@@ -34,7 +34,14 @@
           },
           hAxis: {title: 'Date'},
           vAxis: {title: 'CycleTime'},
-          crosshair: { trigger: 'both' }
+          crosshair: { trigger: 'both' },
+          trendlines: {
+           0: {
+             type: 'polynomial',
+             degree: 3,
+             visibleInLegend: true,
+           }
+         }
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('scatterchart_material'));
